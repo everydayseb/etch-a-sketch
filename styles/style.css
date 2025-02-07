@@ -11,8 +11,24 @@ body {
 }
 
 #container {
-    width: 960px;
-    height: 540px;
-    border: 2px solid #000;
+    width: 640px;
+    max-height: 640px;
+    overflow: hidden;
+    border: 1px solid #000;
     background-color: antiquewhite;
+
+    display: flex;
+    flex-wrap: wrap;
 }
+
+.cell {
+    box-sizing: border-box;
+    width: 64px;
+    height: 64px;
+}
+
+/* .cell {
+    border: 1px solid #000;
+    border-left: none;
+    border-top: none;
+} */
