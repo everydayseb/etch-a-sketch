@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(157, 161, 165);
+}
+
+#container {
+    width: 960px;
+    height: 540px;
+    border: 2px solid #000;
+    background-color: antiquewhite;
+}
