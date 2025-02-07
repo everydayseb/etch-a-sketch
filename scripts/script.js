@@ -11,7 +11,7 @@ const createGrid = function (container, rows, cols) {
     }
 }
 
-createGrid(container, 16, 16);
+createGrid(container, 10, 10);
 
 const cells = container.querySelectorAll("div");
 
