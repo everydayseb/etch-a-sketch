@@ -1,9 +1,11 @@
+let gridSize = 16;
+
 const container = document.querySelector("#container");
 
-const createGrid = function (container, rows, cols) {
-    const cellSize = 640 / rows;
-    for (let i = 0; i < rows; i++) {
-        for (let j = 0; j < cols; j++) {
+const createGrid = function (container, size) {
+    const cellSize = 640 / size;
+    for (let i = 0; i < size; i++) {
+        for (let j = 0; j < size; j++) {
             const div = document.createElement("div");
             div.setAttribute("class", "cell");
             div.style.width = `${cellSize + "px"}`;
@@ -11,14 +13,30 @@ const createGrid = function (container, rows, cols) {
             container.appendChild(div);
         }
     }
+    const cells = container.querySelectorAll("div");
+
+    cells.forEach((cell) => {
+        cell.addEventListener("mouseover", () => {
+            cell.style.backgroundColor = "#363636";
+        });
+    });
 }
 
-createGrid(container, 64, 64);
+const deleteGrid = function (container) {
+    while (container.hasChildNodes()) {
+        container.removeChild(container.firstChild);
+    }
+}
 
-const cells = container.querySelectorAll("div");
+createGrid(container, gridSize);
 
-cells.forEach((cell) => {
-    cell.addEventListener("mouseover", () => {
-        cell.style.backgroundColor = "#363636";
-    });
+sizeButton = document.querySelector("button");
+
+sizeButton.addEventListener("click", () => {
+    gridSize = prompt("What do you want the new size to be? (4 - 100)");
+    if (gridSize >= 4 && gridSize <= 100) {
+        deleteGrid(container);
+        createGrid(container, gridSize);
+    }
 });
+
